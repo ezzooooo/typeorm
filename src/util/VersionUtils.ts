@@ -16,7 +16,11 @@ export class VersionUtils {
 function parseVersion(version: string = ""): Version {
     const v: Version = [0, 0, 0]
 
-    version.split(".").forEach((value, i) => (v[i] = parseInt(value, 10)))
+    const versionInfos = version.split(".");
+
+    for (let i = 0; i < 3; i++) {
+        v[i] = parseInt(versionInfos[i], 10)
+    }
 
     return v
 }
